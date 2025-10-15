@@ -1,7 +1,7 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import { Noto_Serif_TC } from 'next/font/google';
-import Header from './components/Header';
-import './globals.css';
+import Header from './components/header/Header';
 
 const navItems = [{ title: '首頁', path: '/' }];
 
@@ -24,6 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        precedence="default"
+      />
       <body className={`${notoSerif.variable} antialiased`}>
         <Header />
         {children}

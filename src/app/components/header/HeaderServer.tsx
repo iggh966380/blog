@@ -17,7 +17,7 @@ interface HeaderServerProps {
 }
 
 async function getNavItems(): Promise<NavItem[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getRouter`);
+  const res = await fetch(`http://localhost:8080/api/getRouter`);
   return res.json();
 }
 
@@ -27,7 +27,11 @@ export default async function HeaderServer() {
   return (
     <nav className="flex gap-6">
       {navItems.map((item) => (
-        <Link key={item.id} href={item.path}>
+        <Link
+          key={item.id}
+          href={item.path}
+          className="duration-300 ease-in-out text-gray-900 hover:text-gray-500 dark:text-gray-50 dark:hover:text-gray-400"
+        >
           {item.name}
         </Link>
       ))}

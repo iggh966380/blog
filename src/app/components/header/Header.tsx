@@ -16,7 +16,7 @@ interface NavItem {
 }
 
 async function getNavItems(): Promise<NavItem[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getRouter`);
+  const res = await fetch(`http://localhost:8080/api/getRouter`);
   return res.json();
 }
 
@@ -25,9 +25,11 @@ const Header = async () => {
   console.log(navItems);
 
   return (
-    <header className="bg-gray-100 py-4 px-8 shadow-md color">
-      <HeaderServer />
-      <ModeSwitch />
+    <header className="bg-gray-100 p-8 duration-300 ease-in-out shadow-md color dark:bg-gray-800">
+      <div className="flex items-center justify-between m-auto w-[50%]">
+        <HeaderServer />
+        <ModeSwitch />
+      </div>
     </header>
   );
 };

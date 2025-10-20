@@ -1,0 +1,30 @@
+.hamburger {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger > span {
+  width: 20px;
+  height: 1px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+@layer components {
+  .nav-font {
+    transition: all 0.2s ease-in-out;
+    text-wrap: nowrap;
+
+    @variant dark {
+      color: var(--text-gray-50);
+    }
+  }
+  .nav-font:hover {
+    cursor: pointer;
+    color: var(--text-sky-500);
+
+    @variant dark {
+      color: var(--text-cyan-500);
+    }
+  }
+}

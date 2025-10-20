@@ -3,22 +3,36 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NavItem } from './models/navItem.interface';
 
-export default function HeaderServer({ items }: { items: NavItem[] }) {
+function handlePathName(path: string) {
+  if (path === 'list') {
+    return '文章列表';
+  } else {
+    return '分類';
+  }
+}
+
+export default function NavClient({
+  items,
+  className = '',
+}: {
+  items: NavItem[];
+  className?: string;
+}) {
   const pathname = usePathname();
   return (
-    <nav className="flex gap-6">
+    <nav className={`flex gap-6 ${className}`}>
       {items.map((item) => (
         <Link
           key={item.id}
-          href={item.path}
+          href={item.router}
           onClick={(e) => {
-            if (pathname === item.path) {
+            if (pathname === item.router) {
               e.preventDefault();
             }
           }}
           className="nav-font"
         >
-          {item.name}
+          {handlePathName(item.router)}
         </Link>
       ))}
     </nav>

@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="w-[50%] mx-auto">
+    <div className="p-[1rem] w-[50%] lg:mx-auto">
       <code>
         123123
         {'<div></div>'}

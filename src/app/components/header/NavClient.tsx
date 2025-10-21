@@ -24,12 +24,12 @@ export default function NavClient({
       {items.map((item) => (
         <Link
           key={item.id}
-          href={item.router}
-          onClick={(e) => {
-            if (pathname === item.router) {
-              e.preventDefault();
-            }
-          }}
+          href={`/${item.router}`}
+          // onClick={(e) => {
+          //   if (pathname === item.router) {
+          //     e.preventDefault();
+          //   }
+          // }}
           className="nav-font"
         >
           {handlePathName(item.router)}

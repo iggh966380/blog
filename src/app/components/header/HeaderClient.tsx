@@ -1,13 +1,22 @@
 'use client';
 import ModeSwitch from './ModeSwitch';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderServer from './NavClient';
 import NavClient from './NavClient';
 import { NavItem } from './models/navItem.interface';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function HeaderClient({ navItems }: { navItems: NavItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathName = usePathname();
+  const search = useSearchParams();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathName, search]);
+
   return (
     <div className="flex items-center justify-between my-0 mx-[1rem] lg:mx-auto lg:w-[50%]">
       <div className="flex items-center">
@@ -27,15 +36,17 @@ export default function HeaderClient({ navItems }: { navItems: NavItem[] }) {
             }}
           >
             <span
-              className={`border-t-[#222] dark:border-[#fff] ${
+              className={`border-1 border-t-[#222] dark:border-t-[#fff] ${
                 isOpen ? 'rotate-45 translate-y-[7px]' : ''
               }`}
             ></span>
             <span
-              className={`border-t-[#222] dark:border-[#fff] ${isOpen ? 'opacity-0' : ''}`}
+              className={`border-1 border-t-[#222] dark:border-t-[#fff] ${
+                isOpen ? 'opacity-0' : ''
+              }`}
             ></span>
             <span
-              className={`border-t-[#222] dark:border-[#fff] ${
+              className={`border-1 border-t-[#222] dark:border-t-[#fff] ${
                 isOpen ? '-rotate-45 -translate-y-[7px]' : ''
               }`}
             ></span>

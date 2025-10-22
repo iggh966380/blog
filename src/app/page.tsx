@@ -1,10 +1,10 @@
-import Image from 'next/image';
-
 export default function Home() {
   return (
-    <code>
-      123123
-      {'<div></div>'}
-    </code>
+    <div className="p-[1rem] w-[50%] lg:mx-auto">
+      <code>
+        123123
+        {'<div></div>'}
+      </code>
+    </div>
   );
 }

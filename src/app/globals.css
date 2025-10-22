@@ -6,6 +6,7 @@
   --text-gray-900: lab(8.11897% 0.811279 -12.254);
   --text-sky-500: oklch(68.5% 0.169 237.323);
   --text-cyan-500: oklch(71.5% 0.143 215.221);
+  --breakpoint-lg: 62.5rem;
 }
 
 body {
@@ -38,6 +39,7 @@ h2 {
   .nav-font {
     transition: all 0.2s ease-in-out;
     color: var(--text-gray-900);
+    text-wrap: nowrap;
 
     @variant dark {
       color: var(--text-gray-50);

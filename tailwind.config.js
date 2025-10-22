@@ -6,6 +6,10 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,css}',
   ],
   theme: {
+    screens: {
+      lg: '1000px',
+    },
+
     extend: {},
   },
   plugins: [],

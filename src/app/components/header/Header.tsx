@@ -13,7 +13,7 @@ export async function getNavItems(): Promise<NavItem[]> {
 const Header = async () => {
   const navItems = await getNavItems();
   return (
-    <header className="bg-gray-100 py-[1rem] duration-300 ease-in-out shadow-md color dark:bg-gray-800">
+    <header className="bg-gray-100 py-[1rem] duration-300 ease-in-out shadow-md dark:bg-gray-800 border-b-1 border-[#eee]">
       <div className="flex items-center justify-between my-0 mx-auto w-[30%]">
         <div className="flex items-center">
           <Link href="/" aria-label="回到首頁" className="pr-[1.5rem]">

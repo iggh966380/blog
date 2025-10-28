@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { Noto_Serif_TC } from 'next/font/google';
 import Header from './components/header/Header';
 
-const navItems = [{ title: '首頁', path: '/' }];
-
 const notoSerif = Noto_Serif_TC({
   variable: '--font-noto-serif',
   subsets: ['latin'],
@@ -29,7 +27,7 @@ export default function RootLayout({
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         precedence="default"
       />
-      <body className={`${notoSerif.variable} antialiased`}>
+      <body className={`${notoSerif.variable} antialiased duration-300 ease-in-out dark:bg-gray-800 bg-gray-100`}>
         <Header />
         {children}
       </body>

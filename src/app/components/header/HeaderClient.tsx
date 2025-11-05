@@ -1,7 +1,6 @@
 'use client';
 import ModeSwitch from './ModeSwitch';
 import React, { useEffect, useState } from 'react';
-import HeaderServer from './NavClient';
 import NavClient from './NavClient';
 import { NavItem } from './models/navItem.interface';
 import Link from 'next/link';
@@ -21,7 +20,7 @@ export default function HeaderClient({ navItems }: { navItems: NavItem[] }) {
     <div className="flex items-center justify-between my-0 mx-[1rem] lg:mx-auto lg:w-[50%]">
       <div className="flex items-center">
         <Link href="/" aria-label="回到首頁" className="pr-[1.5rem]">
-          <h2 className="nav-font">Jason' blog</h2>
+          <h2 className="nav-font">Jason&#39; blog</h2>
         </Link>
         <span className="hidden lg:block">
           <NavClient items={navItems} />

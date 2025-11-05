@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { NavItem } from './models/navItem.interface';
 
 function handlePathName(path: string) {
@@ -18,7 +17,6 @@ export default function NavClient({
   items: NavItem[];
   className?: string;
 }) {
-  const pathname = usePathname();
   return (
     <nav className={`flex gap-6 ${className}`}>
       {items.map((item) => (

@@ -1,0 +1,11 @@
+.hamburger {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger > span {
+  width: 20px;
+  height: 1px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}

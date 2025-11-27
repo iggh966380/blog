@@ -1,0 +1,123 @@
+{
+  "name": "@blog/blog-editor-electron",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "blog-editor-electron/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "blog-editor-electron/src/main.ts",
+          "tsConfig": "blog-editor-electron/tsconfig.app.json",
+          "assets": [
+            "blog-editor-electron/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "prune-lockfile": {
+        "dependsOn": [
+          "build"
+        ],
+        "cache": true,
+        "executor": "@nx/js:prune-lockfile",
+        "outputs": [
+          "{workspaceRoot}/blog-editor-electron/dist/package.json",
+          "{workspaceRoot}/blog-editor-electron/dist/package-lock.json"
+        ],
+        "options": {
+          "buildTarget": "build"
+        }
+      },
+      "copy-workspace-modules": {
+        "dependsOn": [
+          "build"
+        ],
+        "cache": true,
+        "outputs": [
+          "{workspaceRoot}/blog-editor-electron/dist/workspace_modules"
+        ],
+        "executor": "@nx/js:copy-workspace-modules",
+        "options": {
+          "buildTarget": "build"
+        }
+      },
+      "prune": {
+        "dependsOn": [
+          "prune-lockfile",
+          "copy-workspace-modules"
+        ],
+        "executor": "nx:noop"
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@blog/blog-editor-electron:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@blog/blog-editor-electron:build:development"
+          },
+          "production": {
+            "buildTarget": "@blog/blog-editor-electron:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      },
+            "electron": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            {
+              "command": "nx build blog-editor-electron --watch"
+            },
+            {
+              "command": "nx dev blog-editor-ui"
+            },
+            {
+              "command": "cross-env EDITOR_UI_DEV_URL=http://localhost:4201 electron blog-editor-electron/dist/main.js"
+            }
+          ],
+          "parallel": true
+        }
+      }
+    }
+  },
+  "dependencies": {}
+}

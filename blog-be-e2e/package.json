@@ -1,0 +1,26 @@
+{
+  "name": "@blog/blog-be-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@blog/blog-be"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "blog-be-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@blog/blog-be:build",
+          "@blog/blog-be:serve"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@blog/blog-fe-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@blog/blog-fe"
+    ]
+  }
+}

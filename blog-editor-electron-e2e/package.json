@@ -1,0 +1,26 @@
+{
+  "name": "@blog/blog-editor-electron-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@blog/blog-editor-electron"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "blog-editor-electron-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@blog/blog-editor-electron:build",
+          "@blog/blog-editor-electron:serve"
+        ]
+      }
+    }
+  }
+}

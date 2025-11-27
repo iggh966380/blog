@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-gray-50: lab(98.2596% -0.247031 -0.706708);
+  --text-gray-900: lab(8.11897% 0.811279 -12.254);
+  --text-sky-500: oklch(68.5% 0.169 237.323);
+  --text-cyan-500: oklch(71.5% 0.143 215.221);
+  --breakpoint-lg: 62.5rem;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+p,
+i {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 1000px) {
+  a,
+  p,
+  i {
+    font-size: clamp(16px, 0.936vw, 20px);
+  }
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+@layer components {
+  .nav-font {
+    transition: all 0.2s ease-in-out;
+    color: var(--text-gray-900);
+    text-wrap: nowrap;
+
+    @variant dark {
+      color: var(--text-gray-50);
+    }
+  }
+  .nav-font:hover {
+    cursor: pointer;
+    color: var(--text-sky-500);
+
+    @variant dark {
+      color: var(--text-cyan-500);
+    }
+  }
+}

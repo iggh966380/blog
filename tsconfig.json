@@ -8,6 +8,33 @@
     },
     {
       "path": "./apps/blog"
+    },
+    {
+      "path": "./blog-fe-e2e"
+    },
+    {
+      "path": "./blog-fe"
+    },
+    {
+      "path": "./blog-be-e2e"
+    },
+    {
+      "path": "./blog-be"
+    },
+    {
+      "path": "./blog-editor-ui-e2e"
+    },
+    {
+      "path": "./blog-editor-ui"
+    },
+    {
+      "path": "./blog-editor-electron-e2e"
+    },
+    {
+      "path": "./blog-editor-electron"
+    },
+    {
+      "path": "./packages"
     }
   ]
 }
